@@ -1,0 +1,24 @@
+#!/bin/bash
+#while loops
+
+
+n=0
+
+read -p "please enter the website url: " site
+
+read -p "please enter the name of the folder you want to save your data in: " save
+
+while (( $n <= 10 ))
+
+do
+
+service tor start #starts tor service to be anonymous
+
+ 
+proxychains firefox $site/?author=$n | tee $save #open firefox  and does author enumeration 
+
+ (( n++ )) #post incrimintes the number
+
+done
+
+echo "any malicious use of the code will not hold the author responsible by any means"
